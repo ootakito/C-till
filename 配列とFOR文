@@ -61,3 +61,7 @@ class ABC
 
  for (int i = 0; i < numbers.Length; i++)　コンソールアプリでlengthが使えるのは、
 何もしてなくても予めusingが内部に入ってて見えないから
+
+{average:F2}のF２は小数点２位という意味になる。
+double average = (double)sum / numbers.Length;は
+intをキャストしてdoubleにしてる。(double)でキャスト
