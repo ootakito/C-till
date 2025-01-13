@@ -1,1 +1,77 @@
+static void Main()
+{
 
+
+
+
+    while (true)
+    {
+        Console.WriteLine("最初の数値を入力してください（終了するには 'exit' と入力）:");
+        string inputA = Console.ReadLine();
+
+        if (inputA.ToLower() == "exit")
+        {
+            Console.WriteLine("プログラムを終了します。");
+            break;
+        }
+
+        if (!int.TryParse(inputA, out int a))
+        {
+            Console.WriteLine("プログラムを終了します。");
+            continue;
+        }
+
+        Console.WriteLine("次の数値を入力してください（終了するには 'exit' と入力）:");
+        string inputB = Console.ReadLine();
+
+        if (inputB.ToLower() == "exit")
+        {
+            Console.WriteLine("プログラムを終了します。");
+            break;
+        }
+
+        if (!int.TryParse(inputB, out int b))
+        {
+            Console.WriteLine("プログラムを終了します。");
+            continue;
+        }
+
+
+        int c = a + b;
+
+
+
+        if (c <= 0)
+        {
+
+            Console.WriteLine("負の数");
+        }
+        else if (c >= 20)
+        {
+            Console.WriteLine("非常に大きい");
+        }
+        else if (c >= 10)
+        {
+            Console.WriteLine("大きい");
+        }
+        else if (c < 10)
+        {
+
+            Console.WriteLine("小さい");
+        }
+
+
+        if (c % 2 == 0)
+        {
+            Console.WriteLine("偶数");
+        }
+        else
+        {
+            Console.WriteLine("奇数");
+        }
+
+    }
+
+}
+
+引数修飾子  out  が　存在してる。
