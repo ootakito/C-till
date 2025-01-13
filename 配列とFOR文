@@ -65,3 +65,68 @@ class ABC
 {average:F2}のF２は小数点２位という意味になる。
 double average = (double)sum / numbers.Length;は
 intをキャストしてdoubleにしてる。(double)でキャスト
+
+
+class ABC
+{
+    static void Main()
+    {
+        int[] numbers = new int[5];
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            while (true)
+            {
+                Console.WriteLine($"{i + 1}つ目の数値を入力してください:");
+                string input = Console.ReadLine();
+
+                if (int.TryParse(input, out int value))
+                {
+                    numbers[i] = value;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("不正な入力です。数値を入力してください。");
+                }
+            }
+
+        }
+
+        int sum = 0;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            sum += numbers[i];
+        }
+
+        double avg = (double)sum / numbers.Length;
+
+        for (int i = 0; i < numbers.Length-1; i++)
+        {
+            for (int j = 0; j < numbers.Length -1; j++)
+            {
+                if (numbers[j] > numbers[j + 1])
+                {
+                    int temp = numbers[j];
+                    numbers[j] = numbers[j + 1];
+                    numbers[j + 1] = temp;
+                }
+            }
+        }
+
+        int median = numbers[numbers.Length / 2];
+
+        Console.WriteLine($"平均値: {avg:F2}");
+        Console.WriteLine($"中央値: {median}");
+    }
+}
+
+
+
+　　　　　　　　　　　int temp = numbers[j];
+                    numbers[j] = numbers[j + 1];
+                    numbers[j + 1] = temp;
+
+ここは上から順にコードを読んでる為、numbers[j]で最初の数字が入ってnumbers[j + 1] = temp;で
+保存してた２番目の大きい数値が入るため、バブルソートになる。
